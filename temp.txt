@@ -1,0 +1,34 @@
+<div id="cityname" style="color:green"></div>
+<div id="curr" style="color:blue"></div>
+<div id="iconholder"></div>
+
+var getJSON = function(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status == 200) {
+        resolve(xhr.response);
+      } else {
+        reject(status);
+      }
+    };
+    xhr.send();
+  });
+};
+
+getJSON('http://api.openweathermap.org/data/2.5/weather?zip=60615&units=imperial').then(function(data) {
+    cityname.innerText = data.name;
+    curr.innerText = data.main.temp;
+    icon = 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png';
+    var img = new Image();
+    img.src = icon
+    iconholder.appendChild(img);
+}, function(status) { //error detection....
+  alert('Something went wrong.');
+});
+
+
+
