@@ -1,0 +1,41 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#front {
+    background-color: lightblue;
+    height: 250px;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.side {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+}
+#right {
+    left: 75%;
+}
+#middle {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 25%;
+}
+#middle > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+.lohi {
+    height: 20px;
+}
+#lotxthold {
+    margin: auto auto auto 10px;
+    float: left;
+}
+#hitxthold {
+    margin: auto 10px auto auto;
+    float: right;
+}
